@@ -726,11 +726,11 @@ impl Tensor {
 
 /// A store for gradients, associating a tensor id to the corresponding gradient tensor, used for back propagation.
 #[derive(Debug)]
-pub struct GradStore(HashMap<TensorId, Tensor>);
+pub struct GradStore(pub HashMap<TensorId, Tensor>);
 
 impl GradStore {
     /// Create a new gradient store
-    fn new() -> Self {
+    pub fn new() -> Self {
         GradStore(HashMap::new())
     }
 
